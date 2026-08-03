@@ -66,7 +66,7 @@ export const Home = () => {
     <div className='homepage'>
     {/* section 1 */}
     <div className='navbar'>
-            <h1>Nestly</h1>
+            <h1>Nesty</h1>
             <div className="middlenav">
                 <li><a href="#topproducts">Top</a></li>
                 <li><a href="#stats">Stats</a></li>
