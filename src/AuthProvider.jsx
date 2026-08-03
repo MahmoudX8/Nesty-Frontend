@@ -18,7 +18,6 @@ export const AuthProvider = ({ children }) => {
         setMemberRole(memberRole);
         setUserId(id);
         setIsAuthenticated(true);
-        // if (userData) setUser(userData);
     };
     const logout = async () => {
         try {
@@ -39,7 +38,6 @@ export const AuthProvider = ({ children }) => {
                 withCredentials: true
             });
             if (response.data.success) {
-                // console.log('✅ Got new token from refresh');
                 const newToken = response.data.accessToken;
                 setToken(newToken);
                 setIsAuthenticated(true);
@@ -49,7 +47,6 @@ export const AuthProvider = ({ children }) => {
                 }
             }
         } catch (error) {
-            // console.log('❌ Refresh failed:', error.message);
             setToken(null);
             setIsAuthenticated(false);
             setUser(null);
@@ -111,7 +108,6 @@ export const AuthProvider = ({ children }) => {
                         originalRequest.headers.Authorization = `Bearer ${newToken}`;
                         return axios(originalRequest);
                     } catch (refreshError) {
-                        // console.log('❌ Auto-refresh failed, logging out');
                         logout();
                         return Promise.reject(refreshError);
                     }
@@ -132,7 +128,7 @@ export const AuthProvider = ({ children }) => {
             user,
             login,
             logout,
-            checkAuth, // Optional: expose for manual refresh
+            checkAuth,
             restoreSession
         }}>
             {children}
