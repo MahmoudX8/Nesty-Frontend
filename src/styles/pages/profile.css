@@ -1,0 +1,69 @@
+.profile{
+    height: 100vh;
+    overflow: hidden;
+    align-content: center;
+    background-color: var(--primary);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.profile .profilecard{
+    background-color: var(--bg);
+    padding: 3rem 2rem 1.5rem;
+    min-height: 22rem;
+    color: var(--primary);
+    border-radius: 6px;
+    justify-self: center;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: min(90%, 22rem);
+    box-shadow:rgba(0, 0, 0, 0.249) 5px 6px 3px;
+    animation: profilecard 1s ease-in-out;
+}
+@keyframes profilecard {
+    from{
+        transform: translateX(20rem);
+    }to{
+        transform: translateX(0);
+    }
+}
+.profilecard .profileinfo {
+  flex: 1 1 auto;
+}
+.profilecard .profileinfo p{
+    margin: 1rem 0;
+}
+.profilecard .profileactions {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.profilecard button{
+    background-color: var(--primary);
+    color: var(--bg);
+    padding: .5rem;
+    border-radius: 6px;
+    border: none;
+    margin: 1rem;
+    margin-top: auto;
+    cursor: pointer;
+    transition: all ease-in-out .5s;
+}
+
+.logoutbtn:hover{
+    background-color: rgb(186, 72, 72);
+    color: aliceblue;
+}
+.updatedatabtn:hover{
+    background-color: #2c322b;
+}
+.addproductbtn:hover{
+    background-color: #2c322b;
+}
+@media (max-width: 480px) {
+  .profile .profilecard{
+    padding: 2rem 0;
+  }
+}

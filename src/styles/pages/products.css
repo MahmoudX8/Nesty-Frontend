@@ -1,0 +1,157 @@
+.explore{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    background-color: var(--bg);
+    position: relative;
+    animation: explorepage 2s ease-in-out;
+}
+@keyframes explorepage {
+    from{
+        left: -40rem;
+        background-color: white;
+    }to{
+        left: 0;
+        background-color: var(--bg);
+    }
+}
+.productsfield{
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+.productsfield .product{
+    height: 20rem;
+    border-radius: 6px;
+    padding-bottom: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cards);
+    position: relative;
+    box-shadow:rgba(0, 0, 0, 0.208) 5px 2px 3px;
+    transition: all .5s linear;
+}
+.productsfield .product:hover{
+    transform: scale(1.05,1.05);
+}
+.product .prodphoto{
+    align-self: center;
+    overflow: hidden;
+}
+.productsfield .product img{
+  width: 100%;
+  /* height: 15rem; */
+  border-radius: 6px;
+  aspect-ratio: 7 / 4;
+  object-fit: cover;
+  border-bottom: solid 1px black;
+  margin-bottom: 0.75rem;
+}
+.productsfield .product .productinfo{
+    margin-top: auto;
+    padding: 1rem;
+}
+.productsfield .product .productinfo p{
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 230px;
+}
+.productsfield .product .productbtn{
+    justify-self: end;
+}
+.productsfield .product button{
+    background-color: var(--primary);
+    justify-self: start;
+    padding: .5rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    z-index: 99;
+    color: aliceblue;
+    transition: all .4s ease-in-out;
+}
+.productsfield .product button:hover{
+    background-color: var(--btns);
+}
+
+.explore h1{
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    color: var(--primary);
+}
+.explore input{
+    width: 22rem;
+    padding: .5rem;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 2rem;
+}
+.explore .carticon{
+    background-color: var(--bg);
+    height: 4rem;
+    width: 4rem;
+    padding: 1rem;
+    border-radius: 50%;
+    align-content: center;
+    text-align: center;
+    color: aliceblue;
+    font-size: 1rem;
+    position: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    right: 2rem;
+    bottom: 2rem;
+    cursor: pointer;
+    box-shadow: #6b6b6ba0 4px 8px 8px  ;
+    transition: all .3s linear;
+    animation: cart .5s ease-in-out;
+}
+.explore .carticon:hover{
+    transform: scale(1.05,1.05);
+}
+@keyframes cart {
+    from{
+        transform: translateX(5rem);
+    }to{
+        transform: translateX(0);
+    }
+}
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 30px 0;
+    padding: 20px;
+}
+
+.pagination-controls button {
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+    background: #f0f0f0;
+}
+
+.pagination-controls button.active {
+    background: var(--primary);
+    color: white;
+}
+
+.pagination-controls button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-arrow {
+    font-size: 14px;
+}

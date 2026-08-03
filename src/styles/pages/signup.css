@@ -1,0 +1,93 @@
+.signuppage{
+    background-color: var(--primary);
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 1rem;
+    /* overflow: hidden; */
+    color: var(--text);
+}
+.signuppage form{
+    text-align: center;
+    padding: 2rem;
+    /* padding-top: 4rem; */
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+    max-width: 90%;
+    /* min-height: clamp(20rem, 60vh, 40rem); */
+    /* max-height: 90vh; */
+    overflow-y: auto;
+    max-width: 30rem;
+    box-shadow:rgba(0, 0, 0, 0.208) 5px 2px 3px;
+    animation: form2 1s linear;
+}
+@keyframes form2 {
+    0%{
+        transform: translateX(30rem);
+    }100%{
+        transform: translateX(0rem);
+    }
+}
+.signuppage form h1{
+    color: var(--primary);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: rgba(0, 0, 0, 0.208) 5px 2px 3px;
+    margin: auto;
+}
+.signuppage form input{
+    margin: 1rem 0;
+    padding: .5rem;
+    border-radius: 6px;
+    border: none;
+}
+.signuppage form button{
+    margin: auto;
+    margin-top: 1rem;
+    width: fit-content;
+    justify-self: center;
+    align-self: center;
+    padding: .5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--primary);
+    color: aliceblue;
+    transition: all .6s ease-in-out;
+}
+.signuppage form button:hover{
+    background-color: var(--btns);
+}
+.signuppage form p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter;
+    user-select: none;
+    margin: .5rem 0;
+}
+.signuppage form .question{
+    /* text-decoration: underline; */
+    color: rgb(128, 128, 128);
+    cursor: pointer;
+    margin-bottom: 1rem;
+    width: fit-content;
+    display: flex;
+    align-self: center;
+    transition: all .5s ease-in-out;
+}
+.signuppage form .question:hover{
+    text-decoration: underline;
+    color: var(--primary);
+}
+.signuppage form .terms{
+    margin-top: auto;
+}
+@media (max-width: 480px) {
+  .signuppage form {
+    padding: 1.25rem;
+  }
+  .signuppage form input {
+    margin: 1.25rem 0;
+  }
+}

@@ -1,0 +1,69 @@
+.changepasspage{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--primary);
+    padding: 1rem;
+}
+.changepasspage .form{
+    background-color: var(--cards);
+    padding: 2rem;
+    border-radius: 8px;
+    align-items: center;
+    height: 60%;
+    animation: changepassform 1s linear;
+}
+@keyframes changepassform {
+    from{
+        transform: translateX(32rem);
+    }to{
+        
+        transform: translateX(0rem);
+    } 
+}
+.changepasspage .form form{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.changepasspage .form form .formdata{
+    color: var(--text);
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.changepasspage .form form .formdata h1{
+    color: var(--text);
+    font-weight: bolder;
+}
+.changepasspage .form form .formdata p{
+    color: grey;
+    font-size: 12px;
+}
+.changepasspage .form form .inputdiv{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+.changepasspage .form form .inputdiv input{
+    padding: .2rem 1rem;
+    width: 15rem;
+}
+.changepasspage .form form .inputdiv button{
+    width: 4rem;
+    cursor: pointer;
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: .5rem;
+    color: aliceblue;
+    background-color: var(--primary)
+    ;
+    transition: all linear .3s;
+}
+.changepasspage .form form .inputdiv button:hover{
+    background-color: rgb(44, 60, 11);
+}

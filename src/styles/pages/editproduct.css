@@ -1,0 +1,143 @@
+.editprodpage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120vh;
+    overflow: hidden;
+    align-content: center;
+    background-color: var(--primary);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 2rem;
+    position: relative;
+}
+.editprodpage form{
+    border-radius: 12px;
+    padding: 2rem 4rem;
+    background-color: var(--bg);
+    /* height: 90%; */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    animation: form 1.5s ease-in-out;
+}
+
+.editprodpage form h1{
+    font-weight: bold;
+    font-size: 3rem;
+    color: var(--text);
+    align-self: center;
+    justify-self: center;
+}
+.editprodpage p{
+    color: gray;
+}
+.editprodpage form .imagediv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+    width: 260px;
+}
+.editprodpage form .imagediv img{
+    border-radius: 12px;
+    width: 180px;
+    height: 150px;
+    margin-bottom: 1rem;
+}
+#title{
+    padding: .4rem;
+    width: 16rem;
+    font-size: 1rem;
+}
+#desc{
+    padding: .9rem;
+    width: 15rem;
+    font-size: .9rem;
+}
+#check{
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+#price{
+    width: 3.5rem;
+    text-align: center;
+}
+#quantity{
+    width: 3.5rem;
+    text-align: center;
+
+}
+.editprodpage form .formbtns{
+    display: flex;
+    gap: 1rem;
+}
+.editprodpage form button{
+    background-color: var(--primary);
+    color: aliceblue;
+    padding: .7rem;
+    border: none;
+    border-radius: 6px;
+    bottom: 0;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+}
+.editprodpage form button:hover{
+    background-color: var(--btns);
+}
+@media (max-width: 480px) {
+  .editprodpage form{
+    padding: 2rem 1rem;
+    padding-bottom: 1rem;
+
+}
+  .editprodpage form h1{
+    font-size: 2rem;
+}
+}
+.toast{
+    padding: 3rem;
+    border-radius: 12px;
+    position: absolute;
+    align-items: center;
+    box-shadow: black 1px 3px 6px;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 8rem;
+    top: 40%;
+    /* left: 25%; */
+    justify-content: center;
+    justify-self: center;
+    z-index: 99;
+    background-color: var(--bg);
+    gap: 2rem;
+}
+.toast .btns button{
+    padding: 5px 8px;
+    margin: 0 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .4s linear;
+    color: aliceblue;
+}
+.toast .btns .no{
+    background-color: var(--primary);
+}
+.toast .btns .no:hover{
+    background-color: #2a2e2a;
+}
+.toast .btns .yes{
+    background-color: rgb(235, 108, 108);
+}
+.toast .btns .yes:hover{
+    background-color: rgb(253, 80, 80);
+}
+.shade{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.53);
+    position: absolute;
+    z-index: 10;
+}

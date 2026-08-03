@@ -1,0 +1,40 @@
+.detailedorderpage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem;
+    background-color: var(--primary);
+}
+.detailedorderpage .title{
+    margin-bottom: 2rem;
+    color: aliceblue;
+    font-size: 1.5rem;
+}
+.detailedorderpage .ordersection {
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+.detailedorderpage .ordersection .order{
+    background-color: var(--cards);
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+.detailedorderpage .ordersection .order:hover{
+    transform: scale(1.05,1.05);
+}
+
+.detailedorderpage .ordersection .order img{
+    width: 200px;
+    height: 170px;
+}
+.detailedorderpage .ordersection .order p{
+    color: grey;
+}
+.detailedorderpage .ordersection .order p span{
+    color: black;
+}

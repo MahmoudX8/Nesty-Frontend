@@ -1,0 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;  
+}

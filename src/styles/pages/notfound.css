@@ -1,0 +1,13 @@
+.notfound{
+    height: 100vh;
+    background-color: var(--cards);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--primary);
+    font-size: 1.8rem;
+    padding: 1rem;
+    overflow: hidden;
+}

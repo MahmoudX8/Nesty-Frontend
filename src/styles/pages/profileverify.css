@@ -1,0 +1,45 @@
+.profileotp{
+    height: 100vh;
+    background-color: var(--bg);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    gap: 3rem;
+}
+.profileotp .txt h1{
+    color: var(--text);
+    font-weight: bold;
+    font-size: 3rem;
+}
+.profileotp .txt p{
+    color: grey;
+    font-weight: lighter;
+    font-size: .8rem;
+}
+.profileotp .codeArea form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.profileotp .codeArea input{
+    padding: .2rem;
+    font-size: 15px;
+    text-align: center;
+}
+.profileotp .codeArea button{
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: aliceblue;
+    padding: .4rem;
+    transition: all .3s ease-in-out;
+}
+.profileotp .codeArea button:hover{
+    background-color: #373f36;
+}
