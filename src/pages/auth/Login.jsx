@@ -60,7 +60,7 @@ export const Login = () => {
             <br />
             <p className='question' onClick={()=>{navigate('/signup')}}>don't have account?</p>
             <p className='question' onClick={()=>{navigate('/forget-password')}}>Forget Password</p>
-            <p className='terms' style={{color:"grey"}}>By joining, you agree to the Nestly Terms of Service and to occasionally receive emails from us. Please read our Privacy Policy to learn how we use your personal data.</p>
+            <p className='terms' style={{color:"grey"}}>By joining, you agree to the Nesty Terms of Service and to occasionally receive emails from us. Please read our Privacy Policy to learn how we use your personal data.</p>
         </form>
     </div>
     </>
