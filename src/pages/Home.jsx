@@ -85,7 +85,7 @@ export const Home = () => {
     {/* section 2 */}
     <div className='homecontent'>
         <div className="subtitle">
-            <h1>Nestly, Simple spaces <span style={{color:'var(--primary)'}}>&</span> well lived<span style={{color:'var(--primary)'}}>.</span></h1>
+            <h1>Nesty, Simple spaces <span style={{color:'var(--primary)'}}>&</span> well lived<span style={{color:'var(--primary)'}}>.</span></h1>
             <div className="browsebtn">
                 <button onClick={()=>{navigate('/products')}} disabled={loading}>Browse <span><FaArrowRight /></span></button>
 
