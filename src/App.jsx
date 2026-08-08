@@ -21,7 +21,6 @@ import { ProfileOtpVerify } from './pages/auth/ProfileOtpVerify'
 import { ForgetPassword } from './pages/auth/ForgetPassword'
 import { ChangePassword } from './pages/auth/ChangePassword'
 import { ForgetPasswordOtpVerify } from './pages/auth/ForgetPasswordOtpVerify'
-import { OrderProvider } from './OrderContext'
 import { Orders } from './pages/Orders'
 import { DetailedOrder } from './pages/DetailedOrder'
 
