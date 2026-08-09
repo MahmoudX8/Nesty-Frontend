@@ -119,15 +119,15 @@ export const Home = () => {
     <div className="numbers" id='stats'>
         <div className="numusers">
             <h1>Users</h1>
-            <p><span style={{    color: 'var(--btns)'}}>+</span>{numusers}K</p>
+            <p><span style={{    color: 'var(--btns)'}}>+</span>{numusers}</p>
         </div>
         <div className="numproducts">
             <h1>Products</h1>
-            <p><span style={{    color: 'var(--btns)'}}>+</span>{numproducts}K</p>
+            <p><span style={{    color: 'var(--btns)'}}>+</span>{numproducts}</p>
         </div>
         <div className="numpurchases">
-            <h1>Purchases</h1>
-            <p><span style={{    color: 'var(--btns)'}}>+</span>{numpurchases}K</p>
+            <h1>Orders</h1>
+            <p><span style={{    color: 'var(--btns)'}}>+</span>{numpurchases}</p>
         </div>
     </div>
     <hr />
