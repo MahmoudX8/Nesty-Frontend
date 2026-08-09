@@ -31,7 +31,6 @@ export const ForgetPasswordOtpVerify = () => {
                 login(data.accessToken ,data.member_role, data.id);
                 setTimeout(() => {
                     navigate('/change-password');
-                    window.location.reload();
                 }, 1000);
             }else{
                 setMsg(data.message);
