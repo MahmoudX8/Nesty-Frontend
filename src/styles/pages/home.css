@@ -189,10 +189,11 @@
   width: 90%;
   justify-self: center;
   position: absolute;
-  display: flex;              /* flex instead of grid */
-  flex-wrap: nowrap;          /* forces single row, never wraps */
+  right: 4rem;
+  display: flex;              
+  flex-wrap: nowrap;          
   align-items: center;
-  overflow-x: auto;           /* scrollbar appears only when needed */
+  overflow-x: auto;           
   overflow-y: hidden;
   scrollbar-width: none;
   gap: 1.5rem;
