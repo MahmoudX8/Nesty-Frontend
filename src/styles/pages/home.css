@@ -267,6 +267,9 @@
 }
 .numbers div{
     justify-items: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 .numbers div h1{
     margin-bottom: 2rem;
