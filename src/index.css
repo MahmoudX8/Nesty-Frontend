@@ -8,6 +8,6 @@
 body {
   margin: 0;
 }
-input{
+input:focus{
     outline: none;
 }
