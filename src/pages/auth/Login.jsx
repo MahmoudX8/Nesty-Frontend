@@ -3,7 +3,8 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthProvider';
-import '../../styles/pages/login.css'
+import '../../styles/pages/login.css';
+import { FaEyeSlash } from "react-icons/fa";
 export const Login = () => {
     const [loading,setloading] = useState(false);
     const [email,setemail] = useState("");
@@ -11,6 +12,7 @@ export const Login = () => {
     const [err,seterr] = useState("");
     const [success,setsuccess] = useState("");
     const [role,setrole] = useState("");
+    const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
     const {login} = useAuth();
 
@@ -55,7 +57,10 @@ export const Login = () => {
             {err && <p style={{color:"red"}}>{err}</p>}
             {success && <p style={{color: 'green'}} >{success}</p>}
             <input type="email" required placeholder='Email' value={email} disabled={loading} onChange={(e)=>{setemail(e.target.value)}} />
-            <input type="password" required placeholder='Password' value={pass} disabled={loading} onChange={(e)=>{setpass(e.target.value)}} />
+            <div className="passdiv">
+                <input type={showPass?"text":"password"} className='password' required placeholder='Password' value={pass} disabled={loading} onChange={(e)=>{setpass(e.target.value)}} />
+                <span><FaEyeSlash className='eye' style={showPass?{color:'#50624e'}:{color:'gray'}} onClick={(e)=>{e.stopPropagation(); setShowPass(!showPass)}}/></span>
+            </div>
             <button type="submit">{loading ? "..." : "submit"}</button>
             <br />
             <p className='question' onClick={()=>{navigate('/signup')}}>don't have account?</p>
