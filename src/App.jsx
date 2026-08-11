@@ -23,7 +23,7 @@ import { ChangePassword } from './pages/auth/ChangePassword'
 import { ForgetPasswordOtpVerify } from './pages/auth/ForgetPasswordOtpVerify'
 import { Orders } from './pages/Orders'
 import { DetailedOrder } from './pages/DetailedOrder'
-
+import { SuccessfulPayment } from './pages/SuccessfulPayment'
 
 function App() {
   const router = createBrowserRouter(createRoutesFromElements(
@@ -43,6 +43,7 @@ function App() {
       <Route path='/addproduct' element={<AddProduct />}/>
       <Route path='/editproduct/:id' element={<EditProduct />}/>
       <Route path='/cart' element={<Cart />}/>
+      <Route path='/successful-payment' element={<SuccessfulPayment />}/>
       <Route path='/orders' element={<Orders />}/>
       <Route path='/order/:id' element={<DetailedOrder />}/>
       <Route path='/test' element={<Test />}/>
