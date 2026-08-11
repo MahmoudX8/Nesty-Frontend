@@ -91,3 +91,24 @@
     margin: 1.25rem 0;
   }
 }
+.signuppage form .passdiv{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    
+}
+.signuppage form .passdiv .password{
+    width: 100%;
+}
+.signuppage form .passdiv span{
+    height: 1rem;
+}
+.eye{
+    position: absolute;
+    right: 10px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    z-index: 99;
+}
