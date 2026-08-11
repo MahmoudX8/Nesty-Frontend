@@ -67,3 +67,23 @@
 .changepasspage .form form .inputdiv button:hover{
     background-color: rgb(44, 60, 11);
 }
+.changepasspage .form .passdiv{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+}
+.changepasspage .form .passdiv .password{
+    width: 100%;
+}
+.changepasspage .form .passdiv span{
+    height: 1rem;
+}
+.eye{
+    position: absolute;
+    right: 10px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    z-index: 99;
+}
