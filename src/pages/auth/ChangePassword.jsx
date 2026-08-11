@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../../styles/pages/changepass.css'
+import '../../styles/pages/changepass.css';
+import { FaEyeSlash } from "react-icons/fa";
 export const ChangePassword = () => {
     const[pass,setPass] = useState('');
     const [msg,setMsg] = useState('');
     const [loading,setLoading] = useState(false);
+    const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
     const {token, isAuthenticated, loading:authLoading, logout} = useAuth();
     useEffect(()=>{
@@ -54,7 +56,10 @@ export const ChangePassword = () => {
                     {!loading && <p>{msg}</p>}
                 </div>
                 <div className="inputdiv">
-                    <input type="password" required placeholder='New Password' value={pass} onChange={(e)=>{setPass(e.target.value)}}/>
+                    <div className="passdiv">
+                        <input type={showPass? "text" : "password"} className='password' required placeholder='New Password' value={pass} onChange={(e)=>{setPass(e.target.value)}}/>
+                        <span><FaEyeSlash className='eye' style={showPass?{color:'#50624e'}:{color:'gray'}} onClick={(e)=>{e.stopPropagation(); setShowPass(!showPass)}}/></span>
+                    </div>
                     <button type="submit" disabled={loading}>{loading?"...":"Submit"}</button>
                 </div>
             </form>
