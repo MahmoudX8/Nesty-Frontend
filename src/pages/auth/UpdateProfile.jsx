@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../AuthProvider';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/pages/updateprofile.css'
+import '../../styles/pages/updateprofile.css';
+import { FaEyeSlash } from "react-icons/fa";
 export const UpdateProfile = () => {
     const[loading,setloading] = useState(false);
     const[info,setinfo]= useState({fname:'',lname:'',email:'',role:''});
     const[inputData,setInputData] = useState({fname:'',lname:'',pass:''});
     const [msg,setMsg] = useState('');
+    const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
     const {token , isAuthenticated , loading: authLoading} = useAuth();
         const getprofile = async()=>{
@@ -82,7 +84,10 @@ export const UpdateProfile = () => {
             <input type="email" value={info.email} disabled readOnly style={{border:'solid grey 1px'}}/>
             <input type="text" placeholder="New first name" value={inputData.fname} onChange={(e)=>{setInputData(prev => ({...prev, fname:e.target.value}))}}/>
             <input type="text" placeholder="New last name" value={inputData.lname} onChange={(e)=>{setInputData(prev => ({...prev,lname: e.target.value}))}}/>
-            <input type="password" placeholder="New password" value={inputData.pass} onChange={(e)=>{setInputData(prev => ({...prev,pass: e.target.value}))}}/>
+            <div className="passdiv">
+                <input type={showPass?"text":"password"} className='password' placeholder="New password" value={inputData.pass} onChange={(e)=>{setInputData(prev => ({...prev,pass: e.target.value}))}}/>
+                <span><FaEyeSlash className='eye' style={showPass?{color:'#50624e'}:{color:'gray'}} onClick={(e)=>{e.stopPropagation(); setShowPass(!showPass)}}/></span>
+            </div>
             <button type='submit' disabled={loading}>{loading? '...':'Update'}</button>
             {/* <h1>{info.email}</h1>
             <h1>{info.fname}</h1> */}
