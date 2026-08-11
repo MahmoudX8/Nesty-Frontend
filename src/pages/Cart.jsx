@@ -35,32 +35,24 @@ export const Cart = () => {
             return;
         }
     },[token,isAuthenticated,authLoading,roleloading,memberRole]);
-    const handlepurchase = async(e)=>{
-        e.preventDefault();
+        const handleCheckout = async () => {
         try {
             setLoading(true);
             if(cart.length==0){
                 setMsg('You did not pick any thing');
                 return;
-            } 
-            const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/payments/create-order`,{cartproducts:cart, cost:cartTotal},{withCredentials:true,headers:{
-                'Authorization': `Bearer ${token}`
-            }});
-            const {data} = response;
-            if(data.success){
-                setMsg(data.message);
-                clearCart();
-                setTimeout(() => {
-                    navigate('/');
-                }, 1000);
             }
+          const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/payments/create-checkout-session`,{ cartproducts: cart },{ 
+            headers: { 'Authorization': `Bearer ${token}` } 
+            });
+            window.location.href = res.data.checkoutUrl;
         } catch (error) {
-            setMsg(error.message);
             console.log(error.message);
+            setMsg(error.message);
         }finally{
             setLoading(false);
         }
-    }; 
+    };
   return (
     <>
     <div className="cartpage">
@@ -133,7 +125,7 @@ export const Cart = () => {
             <h1>Cart Details</h1>
             <p>Quantity {cartCount}</p>
             <p>Total {cartTotal}$</p>
-            <button onClick={handlepurchase} disabled={loading}>{!loading? 'Purchase': '...'}</button>
+            <button onClick={handleCheckout} disabled={loading}>{!loading? 'Purchase': '...'}</button>
         </div>
     </div>
     </>
