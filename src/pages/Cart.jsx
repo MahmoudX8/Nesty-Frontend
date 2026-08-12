@@ -5,6 +5,8 @@ import { useAuth } from '../AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import { MdDelete } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
+import '../styles/components/loading.css'
+import { VscLoading } from "react-icons/vsc";
 import axios from 'axios';
 export const Cart = () => {
     const {cart, removeFromCart, cartTotal, cartCount, updateQuantity, clearCart} = useCart();
@@ -55,6 +57,12 @@ export const Cart = () => {
     };
   return (
     <>
+    {loading && <div className='loadingpage'>
+        <h1>Loading</h1>
+        <VscLoading className='loadingicon'/>
+        </div>
+    }
+    {!loading &&
     <div className="cartpage">
         <div className="cartproducts">
             {cart.length == 0 && <p>There is no product in cart yet.</p>}
@@ -127,7 +135,7 @@ export const Cart = () => {
             <p>Total {cartTotal}$</p>
             <button onClick={handleCheckout} disabled={loading}>{!loading? 'Purchase': '...'}</button>
         </div>
-    </div>
+    </div>}
     </>
   )
 }
