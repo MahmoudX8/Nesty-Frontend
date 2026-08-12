@@ -8,6 +8,8 @@ import axios from 'axios';
 import '../styles/pages/successfulpayment.css';
 import { PiWarningCircle } from "react-icons/pi";
 import { useCart } from '../CartContext';
+import '../styles/components/loading.css';
+import { VscLoading } from "react-icons/vsc";
 export const SuccessfulPayment = () => {
     const [status, setStatus] = useState('checking'); // 'checking' | 'success' | 'failed'
     const { token, loading: authLoading, isAuthenticated } = useAuth();
@@ -60,6 +62,12 @@ export const SuccessfulPayment = () => {
     if (status !== 'success') return null; // or a loading spinner
   return (
     <>
+    {loading && <div className='loadingpage'>
+        <h1>Loading</h1>
+        <VscLoading className='loadingicon'/>
+        </div>
+    }
+    {!loading && 
     <div className="successfulpayment">
         <div className="checkmark">
             <h1><FaCheck /></h1>
@@ -77,7 +85,7 @@ export const SuccessfulPayment = () => {
             <p>{msg}</p>
           </div>
         </div>}
-    </div>
+    </div>}
     </>
   )
 }
