@@ -6,7 +6,7 @@ import { useAuth } from '../AuthProvider';
 import { useEffect } from 'react';
 import '../styles/pages/detailedorder.css'
 export const DetailedOrder = () => {
-    const {token, isAuthenticated, loading:authloading, member_role, roleloading} = useAuth();
+    const {token, isAuthenticated, loading:authloading, memberRole, roleloading} = useAuth();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [msg, setMsg] = useState('');
@@ -28,12 +28,12 @@ export const DetailedOrder = () => {
         if(!isAuthenticated ||!token){
             navigate('/login');
             return;
-        }if(member_role == 'user'){
+        }if(memberRole == 'user'){
             navigate('/*');
             return;
         }
         getDetailedOrder();
-     },[authloading,roleloading,isAuthenticated, member_role,token]);
+     },[authloading,roleloading,isAuthenticated, memberRole,token]);
     const getDetailedOrder = async()=>{
         try {
             setLoading(true);
