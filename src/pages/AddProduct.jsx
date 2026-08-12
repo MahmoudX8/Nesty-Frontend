@@ -3,6 +3,8 @@ import '../styles/pages/addproduct.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthProvider';
+import '../styles/components/loading.css'
+import { VscLoading } from "react-icons/vsc";
 export const AddProduct = () => {
     const [title,setTitle] = useState('');
     const [description,setDescription] = useState('');
@@ -69,6 +71,12 @@ export const AddProduct = () => {
     },[authLoading,isAuthenticated , memberRole])
   return (
     <>
+    {loading && <div className='loadingpage'>
+        <h1>Loading</h1>
+        <VscLoading className='loadingicon'/>
+        </div>
+    }
+    {!loading && 
     <div className="addproductpage">
         <form action="" onSubmit={handleSubmit}>
             <h1>Add New Product</h1>
@@ -108,7 +116,7 @@ export const AddProduct = () => {
             </label>}
             <button type='submit' disabled={loading}>{!loading? 'Post Product': '...'}</button>
         </form>
-    </div>
+    </div>}
     </>
   )
 }
