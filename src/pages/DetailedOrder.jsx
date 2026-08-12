@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../AuthProvider';
 import { useEffect } from 'react';
-import '../styles/pages/detailedorder.css'
+import '../styles/pages/detailedorder.css';
+import '../styles/components/loading.css';
+import { VscLoading } from "react-icons/vsc";
 export const DetailedOrder = () => {
     const {token, isAuthenticated, loading:authloading, memberRole, roleloading} = useAuth();
     const navigate = useNavigate();
@@ -52,6 +54,12 @@ export const DetailedOrder = () => {
      }
   return (
     <>
+    {loading && <div className='loadingpage'>
+        <h1>Loading</h1>
+        <VscLoading className='loadingicon'/>
+        </div>
+    }
+    {!loading && 
     <div className="detailedorderpage">
         <div className="title">
             <h1>Detailed Order</h1>
@@ -95,7 +103,7 @@ export const DetailedOrder = () => {
                         </button>
                     </div>
         )}
-    </div>
+    </div>}
     </>
   )
 }
