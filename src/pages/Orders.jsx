@@ -7,7 +7,7 @@ import axios from 'axios';
 import '../styles/pages/orders.css';
 import { FaCheck } from "react-icons/fa";
 export const Orders = () => {
-     const {token , isAuthenticated, loading:authloading, member_role, roleloading} = useAuth();
+     const {token , isAuthenticated, loading:authloading, memberRole, roleloading} = useAuth();
      const [msg,setMsg] = useState('');
      const [loading,setLoading] = useState(false);
      const [orders,setOrders] = useState([]);
@@ -44,12 +44,12 @@ export const Orders = () => {
         if(!isAuthenticated ||!token){
             navigate('/login');
             return;
-        }if(member_role == 'user'){
+        }if(memberRole == 'user'){
             navigate('/*');
             return;
         }
         getAllOrders();
-     },[authloading,roleloading,isAuthenticated, member_role,token]);
+     },[authloading,roleloading,isAuthenticated, memberRole,token]);
      const handleConfirmOrder = async(id)=>{
         console.log(id)
         try {
