@@ -5,6 +5,8 @@ import axios from 'axios';
 import '../styles/pages/product.css'
 import { FaCartPlus } from "react-icons/fa";
 import { useCart } from '../CartContext';
+import '../styles/components/loading.css';
+import { VscLoading } from "react-icons/vsc";
 
 export const Product = () => {
     const {token , isAuthenticated , loading: authLoading , memberRole, roleloading} = useAuth();
@@ -41,6 +43,12 @@ export const Product = () => {
     },[token,isAuthenticated,authLoading,roleloading])
   return (
     <>
+    {loading && <div className='loadingpage'>
+        <h1>Loading</h1>
+        <VscLoading className='loadingicon'/>
+        </div>
+    }
+    {!loading && 
     <div className="productpage">
         {item && <div className='product' key={item.id}>
             <div className="prodimg">
@@ -55,7 +63,7 @@ export const Product = () => {
                 </div>
             </div>
         </div>}
-    </div>
+    </div>}
     </>
   )
 }
