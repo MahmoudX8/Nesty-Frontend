@@ -2,8 +2,10 @@ import React, { use, useEffect, useState } from 'react'
 import { useAuth } from '../AuthProvider'
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/pages/editproduct.css'
+import '../styles/pages/editproduct.css';
 import { MdDeleteForever } from "react-icons/md";
+import '../styles/components/loading.css';
+import { VscLoading } from "react-icons/vsc";
 export const EditProduct = () => {
     const {isAuthenticated , token , memberRole , loading:authLoading, roleloading} = useAuth();
     const [title, setTitle] = useState(null);
@@ -93,6 +95,12 @@ export const EditProduct = () => {
     },[token,isAuthenticated,authLoading,memberRole,roleloading]);
   return (
     <>
+    {loading && <div className='loadingpage'>
+        <h1>Loading</h1>
+        <VscLoading className='loadingicon'/>
+        </div>
+    }
+    {!loading && 
     <div className="editprodpage">
         <form action="" onSubmit={handleSubmit}>
             <h1>Edit Product</h1>
@@ -137,7 +145,7 @@ export const EditProduct = () => {
         </div>
     </div>)}
     {toast && <div className='shade' onClick={()=>{setToast(false)}}></div>}
-    </div>
+    </div>}
     </>
   )
 }
