@@ -8,6 +8,8 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import '../styles/components/loading.css';
+import { VscLoading } from "react-icons/vsc";
 export const Explore = () => {
     const [products,setProducts] = useState([]);
     const [query,setQuery] = useState("");
@@ -53,6 +55,12 @@ export const Explore = () => {
     }
   return (
     <>
+    {loading && <div className='loadingpage'>
+        <h1>Loading</h1>
+        <VscLoading className='loadingicon'/>
+        </div>
+    }
+    {!loading &&
     <div className="explore">
         <h1>All Products</h1>
         <input type="search" name="" id="" placeholder='search for title of any item...' onChange={(e)=>{setQuery(e.target.value)}}/>
@@ -106,10 +114,10 @@ export const Explore = () => {
                         </button>
                     </div>
                 )}
-        {!loading && memberRole == 'user' && (<div className='carticon' onClick={()=>{navigate('/cart')}}>
+        {memberRole == 'user' && (<div className='carticon' onClick={()=>{navigate('/cart')}}>
             <span><FaShoppingCart style={{color:"var(--btns)",height:"25px",width:"25px"}}/><span style={{color:"var(--btns)",fontSize:"15px",fontWeight:"bold"}}>{cartCount}</span></span>
         </div>)}
-    </div>
+    </div>}
     </>
   )
 }
