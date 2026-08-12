@@ -6,6 +6,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import '../styles/pages/orders.css';
 import { FaCheck } from "react-icons/fa";
+import '../styles/components/loading.css';
+import { VscLoading } from "react-icons/vsc";
 export const Orders = () => {
      const {token , isAuthenticated, loading:authloading, memberRole, roleloading} = useAuth();
      const [msg,setMsg] = useState('');
@@ -72,6 +74,12 @@ export const Orders = () => {
      }
   return (
     <>
+    {loading && <div className='loadingpage'>
+        <h1>Loading</h1>
+        <VscLoading className='loadingicon'/>
+        </div>
+    }
+    {!loading &&
     <div className="orderspage">
         <div className="title">
             <h1>Orders</h1>
@@ -124,7 +132,7 @@ export const Orders = () => {
                         </button>
                     </div>
                 )}
-    </div>
+    </div>}
     </>
   )
 }
