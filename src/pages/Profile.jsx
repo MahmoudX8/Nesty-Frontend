@@ -8,6 +8,8 @@ import '../styles/pages/profile.css'
 import { useCart } from '../CartContext'
 import { FaEdit } from "react-icons/fa";
 import { IoAdd } from "react-icons/io5";
+import '../styles/components/loading.css';
+import { VscLoading } from "react-icons/vsc";
 export const Profile = () => {
     const [Loading,setLoading] = useState(false);
     const [success,setsuccess] = useState("");
@@ -77,6 +79,12 @@ export const Profile = () => {
     }
   return (
     <>
+    {Loading && <div className='loadingpage'>
+        <h1>Loading</h1>
+        <VscLoading className='loadingicon'/>
+        </div>
+    }
+    {!Loading && 
         <div className="profile">
           <div className="profilecard">
             {success && <p>{success}</p>}
@@ -93,7 +101,7 @@ export const Profile = () => {
               <button className='logoutbtn' disabled={Loading} onClick={()=>{tologout(); clearCart();}}>{Loading?'...':'Logout'}</button>
             </div>
             </div>
-        </div>
+        </div>}
     </>
   )
 }
