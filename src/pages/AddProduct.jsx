@@ -3,7 +3,7 @@ import '../styles/pages/addproduct.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthProvider';
-import '../styles/components/loading.css'
+import '../styles/components/loading.css';
 import { VscLoading } from "react-icons/vsc";
 export const AddProduct = () => {
     const [title,setTitle] = useState('');
@@ -34,8 +34,8 @@ export const AddProduct = () => {
     }
     const handleSubmit = async(e)=>{
         e.preventDefault();
-        setLoading(true);
         try {
+            setLoading(true);
             const formData = new FormData();
             formData.append('image', image);        // must match multer's field name
             formData.append('title', title);
