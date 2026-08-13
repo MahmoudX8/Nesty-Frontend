@@ -10,4 +10,33 @@
     font-size: 1.8rem;
     padding: 1rem;
     overflow: hidden;
+    align-items: center;
+    gap: 2rem;
+}
+.notfound .btn{
+    transition: all .3s ease-in-out;
+}
+.notfound .btn button{
+    padding: 9px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    width: 12rem;
+    display: flex;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: var(--text);
+    background-color: var(--bg);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.notfound .btn:hover{
+    transform: scale(1.05,1.05);
+}
+.notfound .btn .backarrow{
+    color: rgb(44, 77, 51);
+    border: solid 3px ;
+    border-radius: 50%;
+    position: absolute;
+    right: 7px;
 }
