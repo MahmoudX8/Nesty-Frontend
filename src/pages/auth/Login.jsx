@@ -11,7 +11,6 @@ export const Login = () => {
     const [pass,setpass] = useState("");
     const [err,seterr] = useState("");
     const [success,setsuccess] = useState("");
-    const [role,setrole] = useState("");
     const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
     const {login} = useAuth();
@@ -29,7 +28,6 @@ export const Login = () => {
             if(data.success){
                 localStorage.setItem("email", email);
                 localStorage.setItem("name", data.first_name);
-                setrole(data.member_role);
                 login(data.accessToken , data.member_role , data.id);
                 setsuccess(data.message);
                 setTimeout(() => {
@@ -54,14 +52,14 @@ export const Login = () => {
     <div className="loginpage">
         <form onSubmit={handlesubmit}>
             <h1 className='titleofform'>Login</h1>
-            {err && <p style={{color:"red"}}>{err}</p>}
-            {success && <p style={{color: 'green'}} >{success}</p>}
+            {err && <div className='errdiv'><p style={{color:""}}>{err}</p></div>}
+            {success && <div className='successdiv'><p style={{color: 'green'}} >{success}</p></div>}
             <input type="email" required placeholder='Email' value={email} disabled={loading} onChange={(e)=>{setemail(e.target.value)}} />
             <div className="passdiv">
                 <input type={showPass?"text":"password"} className='password' required placeholder='Password' value={pass} disabled={loading} onChange={(e)=>{setpass(e.target.value)}} />
                 <span><FaEyeSlash className='eye' style={showPass?{color:'#50624e'}:{color:'gray'}} onClick={(e)=>{e.stopPropagation(); setShowPass(!showPass)}}/></span>
             </div>
-            <button type="submit">{loading ? "..." : "submit"}</button>
+            <button type="submit" disabled={loading}>{loading ? "..." : "submit"}</button>
             <br />
             <p className='question' onClick={()=>{navigate('/signup')}}>don't have account?</p>
             <p className='question' onClick={()=>{navigate('/forget-password')}}>Forget Password</p>
