@@ -95,12 +95,12 @@ export const EditProduct = () => {
     },[token,isAuthenticated,authLoading,memberRole,roleloading]);
   return (
     <>
-    {loading && <div className='loadingpage'>
+    {roleloading && <div className='loadingpage'>
         <h1>Loading</h1>
         <VscLoading className='loadingicon'/>
         </div>
     }
-    {!loading && 
+    {!roleloading && 
     <div className="editprodpage">
         <form action="" onSubmit={handleSubmit}>
             <h1>Edit Product</h1>
