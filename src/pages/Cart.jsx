@@ -57,12 +57,12 @@ export const Cart = () => {
     };
   return (
     <>
-    {loading && <div className='loadingpage'>
+    {roleloading && <div className='loadingpage'>
         <h1>Loading</h1>
         <VscLoading className='loadingicon'/>
         </div>
     }
-    {!loading &&
+    {!roleloading &&
     <div className="cartpage">
         <div className="cartproducts">
             {cart.length == 0 && <p>There is no product in cart yet.</p>}
