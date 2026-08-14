@@ -74,12 +74,12 @@ export const Orders = () => {
      }
   return (
     <>
-    {loading && <div className='loadingpage'>
+    {roleloading && <div className='loadingpage'>
         <h1>Loading</h1>
         <VscLoading className='loadingicon'/>
         </div>
     }
-    {!loading &&
+    {!roleloading &&
     <div className="orderspage">
         <div className="title">
             <h1>Orders</h1>
