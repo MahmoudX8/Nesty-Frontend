@@ -71,12 +71,12 @@ export const AddProduct = () => {
     },[authLoading,isAuthenticated , memberRole])
   return (
     <>
-    {loading && <div className='loadingpage'>
+    {roleloading && <div className='loadingpage'>
         <h1>Loading</h1>
         <VscLoading className='loadingicon'/>
         </div>
     }
-    {!loading && 
+    {!roleloading && 
     <div className="addproductpage">
         <form action="" onSubmit={handleSubmit}>
             <h1>Add New Product</h1>
