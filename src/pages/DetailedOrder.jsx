@@ -54,12 +54,12 @@ export const DetailedOrder = () => {
      }
   return (
     <>
-    {loading && <div className='loadingpage'>
+    {roleloading && <div className='loadingpage'>
         <h1>Loading</h1>
         <VscLoading className='loadingicon'/>
         </div>
     }
-    {!loading && 
+    {!roleloading && 
     <div className="detailedorderpage">
         <div className="title">
             <h1>Detailed Order</h1>
