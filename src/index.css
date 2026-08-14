@@ -11,3 +11,20 @@ body {
 input:focus{
     outline: none;
 }
+button:disabled{
+  background-color: grey;
+}
+.errdiv{
+    background-color: rgb(255, 183, 183);
+    color: rgb(255, 0, 0);
+    font-size: large;
+    border-radius: 6px;
+    margin: 1rem;
+}
+.successdiv{
+    background-color: rgb(200, 255, 183);
+    color: green;
+    font-size: large;
+    border-radius: 6px;
+    margin: 1rem;
+}
