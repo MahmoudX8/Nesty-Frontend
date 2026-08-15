@@ -76,11 +76,10 @@ export const Home = () => {
                 {token && memberRole == 'user' && <li onClick={()=>{navigate('/cart')}} style={{}}><FaShoppingCart id='icon' className='carticon' style={{height:'20px',width:'20px',paddingTop:"3px"}}/><span className='cartcount' style={{paddingLeft:"1px"}}> {cartCount}</span></li>}
                 {token && memberRole == 'admin' && <li onClick={()=>{navigate('/orders')}} style={{}}><IoMdNotifications id='icon' className='carticon' style={{height:'25px',width:'25px'}}/><span className='cartcount' style={{}}>{pendingorders}</span></li>}
                 {token && memberRole == 'admin' && <li onClick={()=>{navigate('/addproduct')}}><IoAdd id='icon' style={{height:'25px',width:'25px'}}/></li>}
-                {!token && <li onClick={()=>{navigate('/signup')}}><MdLogin id='icon' style={{width:"25px",height:"25px"}}/></li>}
+                {!token && <li onClick={()=>{navigate('/login')}}><MdLogin id='icon' style={{width:"25px",height:"25px"}}/></li>}
                 {token && <li onClick={()=>{navigate('/profile')}}><MdOutlineAccountCircle id='icon' style={{width:"25px",height:"25px"}}/></li>}
                 {/* {token && <li onClick={()=>{navigate('/profile')}}></li>} */}
             </div>
-            {/* {memberRole=='admin'? <li>you are admin</li>: <li>you are user</li>} */}
     </div>
     {/* section 2 */}
     <div className='homecontent'>
