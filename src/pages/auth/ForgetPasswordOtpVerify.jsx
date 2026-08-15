@@ -57,7 +57,7 @@ export const ForgetPasswordOtpVerify = () => {
         </div>
         <div className="codeArea">
             <form action="" onSubmit={handlesubmit}>
-                <input type="text" name="" id="" value={userOtp} onChange={(e)=>{setUserOtp(e.target.value)}} disabled={loading} required/>
+                <input type="text" name="" id="" placeholder="XXXXXX" value={userOtp} onChange={(e)=>{setUserOtp(e.target.value)}} disabled={loading} required/>
                 <button disabled={loading} type='submit'>{loading ? '...' : 'Submit'}</button>
                 <p style={{color:'grey',fontFamily:'Lucida Sans, Lucida Sans Regular, Lucida Grande, Lucida Sans Unicode, Geneva, Verdana, sans-serif'}}>check your email to get verification code</p>
             </form>
