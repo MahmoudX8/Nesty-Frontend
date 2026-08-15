@@ -12,7 +12,6 @@ import { Explore } from './pages/Explore'
 import { Product } from './pages/Product'
 import { EditProduct } from './pages/EditProduct'
 import { AddProduct } from './pages/AddProduct'
-import { Test } from './pages/Test'
 import { NotFound } from './pages/NotFound'
 import { CartProvider } from './CartContext'
 import { Cart } from './pages/Cart'
@@ -46,7 +45,6 @@ function App() {
       <Route path='/successful-payment' element={<SuccessfulPayment />}/>
       <Route path='/orders' element={<Orders />}/>
       <Route path='/order/:id' element={<DetailedOrder />}/>
-      <Route path='/test' element={<Test />}/>
       <Route path='*' element={<NotFound />}/>
     </Route>
   ))
