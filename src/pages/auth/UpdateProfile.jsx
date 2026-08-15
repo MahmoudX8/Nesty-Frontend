@@ -9,6 +9,7 @@ export const UpdateProfile = () => {
     const[info,setinfo]= useState({fname:'',lname:'',email:'',role:''});
     const[inputData,setInputData] = useState({fname:'',lname:'',pass:''});
     const [msg,setMsg] = useState('');
+    const [errMsg,setErrMsg] = useState('');
     const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
     const {token , isAuthenticated , loading: authLoading} = useAuth();
@@ -43,7 +44,8 @@ export const UpdateProfile = () => {
             try {
                 setloading(true);
                 if(!inputData.fname && !inputData.lname && !inputData.pass){
-                    setMsg('You should input at least one field');
+                    setErrMsg('You should input at least one field');
+                    setMsg(null);
                     return;
                 }
                 const finalFname = inputData.fname || info.fname;
@@ -61,11 +63,13 @@ export const UpdateProfile = () => {
                 if (data.success) {
                     localStorage.setItem('email',info.email);
                     setMsg(data.message);
+                    setErrMsg(null);
                     setTimeout(() => {
                         navigate('/verify-otp/profile');
                     }, 1000);
                 }else{
-                    setMsg(data.message);
+                    setErrMsg(data.message);
+                    setMsg(null);
                 }
             } catch (error) {
                 console.log(error);   
@@ -79,7 +83,8 @@ export const UpdateProfile = () => {
     <div className="updateprofile">
         <form action="" onSubmit={handlesubmit}>
             <h1>Update Your Personal Data</h1>
-            {!loading && <p style={{color:'var(--text)'}}>{msg}</p>}
+            {msg && <div className='successdiv'><p style={{color:'green'}}>{msg}</p></div>}
+            {errMsg && <div className='errdiv'><p style={{color:"rgb(255, 0, 0)"}}>{errMsg}</p></div>}
             <p>Email can't be changed</p>
             <input type="email" value={info.email} disabled readOnly style={{border:'solid grey 1px'}}/>
             <input type="text" placeholder="New first name" value={inputData.fname} onChange={(e)=>{setInputData(prev => ({...prev, fname:e.target.value}))}}/>
