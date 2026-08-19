@@ -111,6 +111,7 @@
     box-shadow: #6b6b6ba0 4px 8px 8px  ;
     transition: all .3s linear;
     animation: cart .5s ease-in-out;
+    z-index: 99;
 }
 .explore .carticon:hover{
     transform: scale(1.05,1.05);
