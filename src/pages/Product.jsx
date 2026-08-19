@@ -5,17 +5,28 @@ import axios from 'axios';
 import '../styles/pages/product.css'
 import { FaCartPlus } from "react-icons/fa";
 import { useCart } from '../CartContext';
-import '../styles/components/loading.css';
+import '../styles/components/loading.css'
 import { VscLoading } from "react-icons/vsc";
+import { PiWarningCircle } from "react-icons/pi";
 
 export const Product = () => {
     const {token , isAuthenticated , loading: authLoading , memberRole, roleloading} = useAuth();
     const {addToCart} = useCart();
     const [item,setItem] = useState();
     const [loading,setLoading] = useState(false);
+    const [showToast,setShowToast] = useState(false);
     const {id} = useParams();
     const navigate = useNavigate();
-
+    useEffect(()=>{
+    if(authLoading || roleloading){
+            return;
+        }
+    if (!token || !isAuthenticated) {
+        navigate('/login');
+        return;
+    }
+    getProduct();
+    },[token,isAuthenticated,authLoading,roleloading]);
     const getProduct = async ()=>{
         try {
             setLoading(true);
@@ -31,16 +42,15 @@ export const Product = () => {
             setLoading(false);
         }
     }
-    useEffect(()=>{
-    if(authLoading || roleloading){
-            return;
-        }
-    if (!token || !isAuthenticated) {
-        navigate('/login');
-        return;
+    const addtocart = ()=>{
+        setShowToast(true);
+        addToCart(item);
     }
-    getProduct();
-    },[token,isAuthenticated,authLoading,roleloading])
+    useEffect(() => {
+        if (!showToast) return;
+        const timer = setTimeout(() => setShowToast(false), 2500);
+        return () => clearTimeout(timer);
+    }, [showToast]);
   return (
     <>
     {loading && <div className='loadingpage'>
@@ -59,10 +69,16 @@ export const Product = () => {
                 <p className='desc'>{item.description}</p>
                 <div className="pricing">
                     <p>{item.price} $</p>
-                    {memberRole=='admin'? <button disabled={loading} onClick={()=>navigate(`/editproduct/${item.id}`)}>{loading? '...' :'edit'}</button>:<button disabled={loading} onClick={()=>{addToCart(item)}}><FaCartPlus style={{width:'20px',height:'20px'}}/></button>}
+                    {memberRole=='admin'? <button disabled={loading} onClick={()=>navigate(`/editproduct/${item.id}`)}>{loading? '...' :'edit'}</button>:<button disabled={loading} onClick={addtocart}><FaCartPlus style={{width:'20px',height:'20px'}}/></button>}
                 </div>
             </div>
         </div>}
+    {showToast && (
+        <div className="toastmsg">
+            <span style={{position:"absolute", left:"6px", top:"35%"}}><PiWarningCircle /></span>
+            Added to cart!
+        </div>
+    )}
     </div>}
     </>
   )
