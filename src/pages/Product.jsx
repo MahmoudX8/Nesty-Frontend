@@ -48,7 +48,7 @@ export const Product = () => {
     }
     useEffect(() => {
         if (!showToast) return;
-        const timer = setTimeout(() => setShowToast(false), 2500);
+        const timer = setTimeout(() => setShowToast(false), 2400);
         return () => clearTimeout(timer);
     }, [showToast]);
   return (
