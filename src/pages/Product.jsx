@@ -75,7 +75,6 @@ export const Product = () => {
         </div>}
     {showToast && (
         <div className="toastmsg">
-            <span style={{position:"absolute", left:"6px", top:"35%"}}><PiWarningCircle /></span>
             Added to cart!
         </div>
     )}
