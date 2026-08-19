@@ -18,6 +18,18 @@ export const Login = () => {
     const handlesubmit = async (e)=>{
         e.preventDefault();
         setloading(true);
+        const trimmedEmail = email.trim();
+        if (trimmedEmail.includes(" ") || pass.includes(" ")) {
+            seterr("Spaces are not allowed");
+            setloading(false);
+            return;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(trimmedEmail)) {
+            seterr("Please enter a valid email address");
+            setloading(false);
+            return;
+        }
         seterr("");
         try {
             const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/auth/login`,{
