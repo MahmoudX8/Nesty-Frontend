@@ -8,12 +8,15 @@ import { MdAddShoppingCart } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import { BsThreeDots } from "react-icons/bs";
 import '../styles/components/loading.css';
 import { VscLoading } from "react-icons/vsc";
+import { PiWarningCircle } from "react-icons/pi";
 export const Explore = () => {
     const [products,setProducts] = useState([]);
     const [query,setQuery] = useState("");
     const [loading,setLoading] = useState(false);
+    const [showToast,setShowToast] = useState(false);
     const {memberRole , isAuthenticated} = useAuth();
     const {addToCart, cartCount} = useCart();
     const [currentPage, setCurrentPage] = useState(1);
@@ -52,7 +55,17 @@ export const Explore = () => {
         if(memberRole == 'admin'){
             navigate('/edit');
         }
-    }
+    };
+    const handleAddToCart = (e, prod) => {
+        e.stopPropagation();
+        addToCart(prod);
+        setShowToast(true);
+    };
+    useEffect(() => {
+        if (!showToast) return;
+        const timer = setTimeout(() => setShowToast(false), 2400);
+        return () => clearTimeout(timer);
+    }, [showToast]);
   return (
     <>
     {loading && <div className='loadingpage'>
@@ -77,12 +90,12 @@ export const Explore = () => {
                         <p style={{fontWeight:'bolder'}}>{prod.price} $</p>
                     </div>
                     <div className="productbtn">
-                        {isAuthenticated && (memberRole == 'admin' ? <button style={{zIndex:99}} onClick={(e)=>{e.stopPropagation(); navigate(`/editproduct/${prod.id}`)}}><FaEdit /></button> : <button onClick={(e)=>{e.stopPropagation(); addToCart(prod)}}><FaCartPlus style={{height:"16px",width:"16px"}}/></button>)}
+                        {isAuthenticated && (memberRole == 'admin' ? <button style={{zIndex:99}} onClick={(e)=>{e.stopPropagation(); navigate(`/editproduct/${prod.id}`)}}><FaEdit /></button> : <button onClick={(e)=>{handleAddToCart(e,prod)}}><FaCartPlus style={{height:"16px",width:"16px"}}/></button>)}
                     </div>
                 </div>
             </div>
         ))}
-       </div> 
+       </div>
         }
                        {/* Pagination Controls */}
         {totalPages > 1 && (
@@ -114,10 +127,16 @@ export const Explore = () => {
                         </button>
                     </div>
                 )}
-        {memberRole == 'user' && (<div className='carticon' onClick={()=>{navigate('/cart')}}>
+        {!loading && memberRole == 'user' && (<div className='carticon' onClick={()=>{navigate('/cart')}}>
             <span><FaShoppingCart style={{color:"var(--btns)",height:"25px",width:"25px"}}/><span style={{color:"var(--btns)",fontSize:"15px",fontWeight:"bold"}}>{cartCount}</span></span>
         </div>)}
-    </div>}
+    </div>
+    }
+    {showToast && (
+            <div className="toastmsg">
+                Added to cart!
+            </div>
+        )}
     </>
   )
 }
