@@ -57,7 +57,7 @@ export const SuccessfulPayment = () => {
     },[authLoading,token,isAuthenticated,sessionId]);
     useEffect(()=>{
       if(!msg) return;
-        const timer = setTimeout(() => setMsg(null), 2500);
+        const timer = setTimeout(() => setMsg(null), 2400);
         return () => clearTimeout(timer);
     },[msg]);
     if (status !== 'success') return null;
