@@ -8,10 +8,10 @@ import axios from 'axios';
 import '../styles/pages/successfulpayment.css';
 import { PiWarningCircle } from "react-icons/pi";
 import { useCart } from '../CartContext';
-import '../styles/components/loading.css';
+import '../styles/components/loading.css'
 import { VscLoading } from "react-icons/vsc";
 export const SuccessfulPayment = () => {
-    const [status, setStatus] = useState('checking'); // 'checking' | 'success' | 'failed'
+    const [status, setStatus] = useState('checking');
     const { token, loading: authLoading, isAuthenticated } = useAuth();
     const {clearCart} = useCart();
     const [loading, setLoading] = useState(false);
@@ -43,23 +43,24 @@ export const SuccessfulPayment = () => {
                     setTimeout(() => navigate('/'), 5000);
                   } else {
                     setMsg(res.data.message);
-                    // console.log('there is an error')
                     setTimeout(() => navigate('/'), 3000);
                   }
                 } catch (error) {
                   setMsg(error.message);
-                  // console.log("Verify error:", error.response?.data || error.message);
+                  console.log("Verify error:", error.response?.data || error.message);
                   setTimeout(() => navigate('/'), 3000);
             }finally{
               setLoading(false);
-              setTimeout(() => {
-                setMsg(null);
-              }, 5000);
             }
         };
         verify();
     },[authLoading,token,isAuthenticated,sessionId]);
-    if (status !== 'success') return null; // or a loading spinner
+    useEffect(()=>{
+      if(!msg) return;
+        const timer = setTimeout(() => setMsg(null), 2500);
+        return () => clearTimeout(timer);
+    },[msg]);
+    if (status !== 'success') return null;
   return (
     <>
     {loading && <div className='loadingpage'>
@@ -76,15 +77,12 @@ export const SuccessfulPayment = () => {
             <h1>Successful Payment</h1>
             <p>thanks for trying our service</p>
         </div>
-        {msg &&
-        <div className="toastmessage">
-          <div className="icon">
-            <p><PiWarningCircle /></p>
-          </div>
-          <div className="message">
-            <p>{msg}</p>
-          </div>
-        </div>}
+        {msg && 
+        <div className="toastmsg">
+          <span style={{position:"absolute", left:"6px", top:"35%"}}><PiWarningCircle /></span>
+          {msg}
+        </div>
+        }
     </div>}
     </>
   )
