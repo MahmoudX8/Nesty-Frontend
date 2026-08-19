@@ -63,7 +63,8 @@
     max-width: 230px;
 }
 .productsfield .product .productbtn{
-    justify-self: end;
+  justify-content: right;
+  display: flex;
 }
 .productsfield .product button{
     background-color: var(--primary);
