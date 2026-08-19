@@ -79,7 +79,6 @@ export const SuccessfulPayment = () => {
         </div>
         {msg && 
         <div className="toastmsg">
-          <span style={{position:"absolute", left:"6px", top:"35%"}}><PiWarningCircle /></span>
           {msg}
         </div>
         }
