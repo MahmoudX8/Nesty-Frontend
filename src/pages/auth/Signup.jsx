@@ -20,6 +20,32 @@ export const Signup = () => {
     const handlesubmit = async (e)=>{
         e.preventDefault();
         setloading(true);
+        const trimmedFname = fname.trim();
+        const trimmedLname = lname.trim();
+        const trimmedEmail = email.trim();
+        if (trimmedFname.includes(" ") || trimmedLname.includes(" ") || trimmedEmail.includes(" ") || pass.includes(" ")) {
+            seterr("Spaces are not allowed");
+            setloading(false);
+            return;
+        }
+        const nameRegex = /^[\p{L}'-]+$/u;
+        if (!nameRegex.test(trimmedFname) || !nameRegex.test(trimmedLname)) {
+            seterr("Names can only contain letters");
+            setloading(false);
+            return;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(trimmedEmail)) {
+            seterr("Please enter a valid email address");
+            setloading(false);
+            return;
+        }
+        const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d\W_]{8,}$/;
+        if (!passRegex.test(pass)) {
+            seterr("Password must be at least 8 characters and include a letter and a number");
+            setloading(false);
+            return;
+        }
         seterr("");
         try {
             const ipResponse = await axios.get('https://api.ipify.org?format=json' ,{
