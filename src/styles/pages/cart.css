@@ -1,101 +1,3 @@
-/* .cartpage{
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: var(--cards);
-    min-height: 100vh
-}
-.cartpage .cartdetails{
-    background-color: var(--primary);
-    color: aliceblue;
-    padding: 3rem;
-    flex: 1;
-    text-align: center;
-}
-.cartpage .cartdetails h1{
-    text-shadow: rgba(0, 0, 0, 0.208) 5px 2px 3px;
-    margin: 2rem 0;
-}
-.cartpage .cartdetails button{
-    background-color: var(--btns);
-    color: aliceblue;
-    font-size: 1.1rem;
-    padding: 8px;
-    cursor: pointer;
-    border: none;
-    border-radius: 6px;
-    margin: 1rem;
-    transition: all .4s linear;
-}
-.cartpage .cartdetails button:hover{
-    background-color: #bb6e4a;
-}
-.cartpage .cartproducts{
-    background-color: var(--cards);
-    padding: 3rem;
-    flex: 4;
-    text-align: center;
-}
-.cartpage .cartproducts .product{
-    background: var(--bg);
-    border-radius: 6px;
-    display: flex;
-    margin-bottom: 2rem;
-    box-shadow:rgba(0, 0, 0, 0.208) 5px 2px 3px;
-}
-.cartpage .cartproducts .product .removebtndiv .removebtn{
-    background: var(--primary);
-    border-radius: 6px;
-    color: aliceblue;
-    padding: .5rem;
-    cursor: pointer;
-    border: none;
-    width: fit-content;
-    transition: all .4s linear;
-}
-.cartpage .cartproducts .product .removebtndiv .removebtn:hover{
-    background: rgb(235, 94, 94);
-}
-.cartpage .cartproducts .product .desc{
-    color: grey;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 300px;
-}
-.cartpage .cartproducts .product .prodinfo{
-    padding: 3rem;
-    flex: 3;
-}
-.cartpage .cartproducts .product .prodbtns{
-    padding: 3rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.cartpage .cartproducts .product .prodbtns{
-    padding: 3rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-.cartpage .cartproducts .product .prodbtns .quantitycontrol button{
-    background-color: var(--btns);
-    color: aliceblue;
-    padding: 4px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.cartpage .cartproducts .product .prodbtns .quantitycontrol span{
-    margin: 5px;
-}
-.cartpage .cartproducts .product .prodimg img{
-    border-radius: 6px;
-    height: 18rem;
-    width: 20rem;
-} */
 .cartpage{
     display: flex;
     justify-content: space-between;
@@ -111,6 +13,8 @@
     flex: 1;
     text-align: center;
     min-width: 250px;
+    height: 100vh;
+    align-content: center;
 }
 .cartpage .cartdetails h1{
     text-shadow: rgba(0, 0, 0, 0.208) 5px 2px 3px;
@@ -136,6 +40,8 @@
     flex: 4;
     text-align: center;
     min-width: 280px;
+    height: 100vh;
+    overflow-y: scroll;
 }
 .cartpage .cartproducts .product{
     background: var(--bg);
@@ -199,8 +105,6 @@
     max-width: 100%;
     object-fit: cover;
 }
-
-/* ===== Tablet ===== */
 @media (max-width: 900px){
     .cartpage{
         flex-direction: column;
